@@ -1,0 +1,27 @@
+version: "3.5"
+services:
+  noglaxman-backend:
+    build: .
+    image: noglaxman/noglaxman-backend:prod
+    container_name: noglaxman-backend
+    restart: always
+    ports: 
+    - 4000:4000
+    environment:
+    - JWT_SECRET=noglax123
+    - MYSQL_CONNECTION_LIMIT=100
+    - MYSQL_HOST=sql883.main-hosting.eu
+    - MYSQL_USER=u715380418_noglax
+    - MYSQL_PASSWORD=Noglaxman.2001
+    - MYSQL_DATABASE=u715380418_noglaxman
+    - MYSQL_PORT=6662
+    - PORT=4000
+    networks:
+    - noglaxman-backend
+    - noglaxman-db_default
+
+networks:
+  noglaxman-db_default:
+    external: true
+  noglaxman-backend:
+    name: noglaxman-backend_default
