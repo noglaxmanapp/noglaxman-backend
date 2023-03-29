@@ -33,4 +33,4 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ github.repository }}:${{ github.ref_name }}-${{ github.sha }},
-              ${{ github.repository }}:latest
+              ${{ github.repository }}:${{ github.ref_name }}-latest
