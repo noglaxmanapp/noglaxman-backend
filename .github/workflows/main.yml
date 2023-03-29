@@ -1,9 +1,8 @@
 on:
   push:
-    branches:
-      branches: [ develop ]
+    branches: [develop]
   pull_request:
-    branches: [ develop ]
+    branches: [develop]
 name: ci
 jobs:
   build-and-push:
