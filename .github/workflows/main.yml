@@ -24,7 +24,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
       with:
-        images: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+        images: ${{ github.repository }}
 
     - name: Build and push
       uses: docker/build-push-action@v4
@@ -32,5 +32,5 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:${{ github.ref_name }}-${{ github.sha }},
-              ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:latest
+        tags: ${{ github.repository }}:${{ github.ref_name }}-${{ github.sha }},
+              ${{ github.repository }}:latest
