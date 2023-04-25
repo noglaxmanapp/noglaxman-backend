@@ -43,8 +43,7 @@ const updateClient = async (req, res) => {
       return res.send({message: "Cliente actualizado con éxito"});
     }
   } catch (error) {
-    res.status(404);
-    res.send({error: "No se pudo actualizar el cliente."});
+    res.send("No se pudo actualizar el cliente.");
   }
 };
 
