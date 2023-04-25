@@ -40,7 +40,6 @@ const register = async (req, res) => {
     const passwordHash = await encrypt(pass)
     const resultClient = await pool.query('INSERT INTO Client (dni, name, lastname, username, pass) VALUES(?,?,?,?,?) ', [dni, name, lastname, username, passwordHash])
     if (resultClient){
-      console.log(resultClient)
       return res.send({message: "Cliente creado con éxito"})
     }
   } catch(error){

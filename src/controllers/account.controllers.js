@@ -48,12 +48,9 @@ const createAccount = async (req, res) => {
 const updateAccount = async (req, res) => {
   try {
     const { id } = req.params
-    // console.log(`viejo: ${id}`)
     const {account_id} = req.body
-    // console.log(`nuevo: ${account_id}`)
     const resultAccount = await pool.query('UPDATE Account SET account_id = ? WHERE account_id = ?', [account_id, id])
 
-    console.log(resultAccount)
     return res.json(resultAccount);
   } catch (error) {
     res.json(error)
