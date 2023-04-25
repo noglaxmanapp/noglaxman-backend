@@ -59,8 +59,7 @@ const deleteClient = async (req, res) => {
       res.send({error: "No se pudo eliminar el cliente."});
     }
   } catch (error) {
-    res.status(409);
-    res.send({error: "No se pudo eliminar el cliente."});
+    res.send("No se pudo eliminar el cliente.");
   }
 };
 
@@ -70,8 +69,7 @@ const getRole = async (req, res ) => {
     const tokenData = await verifyToken(token);
     res.send({role: tokenData.role})
   } catch (error) {
-    res.status(409)
-    res.send({error:"No existe el token"})
+    res.send("No existe el token")
   }
 }
 
